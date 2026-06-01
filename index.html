@@ -1,0 +1,617 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="ИВЕКС 24 — инструментальный цех в СПб. Фрезеровка, гравировка, пресс-формы. Работа по металлу, пластику, дереву. Доставка по России.">
+    <meta name="keywords" content="фрезеровка СПб, гравировка, пресс-формы, фрезерные работы, ИВЕКС 24, ЧПУ, металлообработка">
+    <meta name="robots" content="index, follow">
+    <title>ИВЕКС 24 | Фрезеровка, гравировка, пресс-формы в СПб</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #eaeef2;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --black: #0a0a0c;
+            --black-light: #121418;
+            --gray-dark: #1e2025;
+            --gray: #2c2f36;
+            --gray-mid: #454b55;
+            --gray-light: #9aa0ab;
+            --red-primary: #c62a2a;
+            --red-dark: #9e1e1e;
+            --red-glow: rgba(198, 42, 42, 0.3);
+            --white: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: var(--red-primary);
+            border-radius: 3px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 40px;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--red-primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(198,42,42,0.3);
+        }
+        .btn-primary:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(198,42,42,0.5);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--gray-mid);
+            color: var(--white);
+        }
+        .btn-outline:hover {
+            border-color: var(--red-primary);
+            color: var(--red-primary);
+            background: rgba(198,42,42,0.05);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0c 0%, #16181e 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--red-glow) 0%, rgba(0,0,0,0) 70%);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            color: var(--red-primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            line-height: 1.2;
+            margin: 0.5rem 0 1rem;
+        }
+        .hero h1 span {
+            color: var(--red-primary);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-light);
+            margin-bottom: 2rem;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .stat-item {
+            border-left: 2px solid var(--red-primary);
+            padding-left: 1rem;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        /* Карточки возможностей */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .capability-card {
+            background: var(--black-light);
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            transition: var(--transition);
+            border: 1px solid var(--gray);
+            text-align: center;
+        }
+        .capability-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--red-primary);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.6);
+        }
+        .card-icon {
+            font-size: 2.8rem;
+            color: var(--red-primary);
+            margin-bottom: 1.2rem;
+        }
+        .capability-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+        }
+        .capability-card p {
+            color: var(--gray-light);
+        }
+
+        /* Галерея */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 1 / 0.85;
+            background: var(--gray-dark);
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent);
+            padding: 1rem;
+            color: white;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Оборудование */
+        .equipment-list {
+            background: var(--black-light);
+            border-radius: 32px;
+            padding: 2rem;
+            border: 1px solid var(--gray);
+        }
+        .equip-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray);
+            flex-wrap: wrap;
+        }
+        .equip-item:last-child {
+            border-bottom: none;
+        }
+        .equip-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(198,42,42,0.15);
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--red-primary);
+        }
+        .equip-info {
+            flex: 2;
+        }
+        .equip-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .equip-desc {
+            font-size: 0.85rem;
+            color: var(--gray-light);
+        }
+        .equip-spec {
+            font-weight: 600;
+            background: var(--gray-dark);
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+
+        /* Форма + контакты */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .form-card {
+            background: var(--black-light);
+            padding: 2rem;
+            border-radius: 28px;
+            border: 1px solid var(--gray);
+        }
+        .input-group {
+            margin-bottom: 1.25rem;
+        }
+        input, textarea {
+            width: 100%;
+            background: var(--gray-dark);
+            border: 1px solid var(--gray-mid);
+            padding: 14px 18px;
+            border-radius: 16px;
+            color: white;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--red-primary);
+            box-shadow: 0 0 0 3px rgba(198,42,42,0.2);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .contact-info {
+            background: var(--black-light);
+            padding: 2rem;
+            border-radius: 28px;
+            border: 1px solid var(--gray);
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-dark);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--red-primary);
+            font-size: 1.3rem;
+        }
+        .delivery-badge {
+            background: rgba(198,42,42,0.15);
+            border-left: 3px solid var(--red-primary);
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+        }
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .social-link {
+            background: var(--gray-dark);
+            width: 44px;
+            height: 44px;
+            border-radius: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+        .social-link:hover {
+            background: var(--red-primary);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--gray);
+            color: var(--gray-light);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .hero-stats { flex-direction: column; gap: 1rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+            h2 { font-size: 1.8rem; }
+            .container { padding: 0 20px; }
+            .equip-item { flex-direction: column; align-items: flex-start; }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 12, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(198,42,42,0.2);
+            padding: 0.8rem 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+        }
+        .logo span {
+            color: var(--red-primary);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-light);
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--red-primary);
+        }
+        @media (max-width: 700px) {
+            .nav-links { display: none; }
+        }
+        section {
+            padding: 90px 0;
+        }
+        .bg-section { background: var(--black); }
+        .bg-gray-section { background: #0f0f12; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">ИВЕКС<span>24</span></div>
+        <div class="nav-links">
+            <a href="#hero">Главная</a>
+            <a href="#capabilities">Услуги</a>
+            <a href="#gallery">Работы</a>
+            <a href="#equipment">Оборудование</a>
+            <a href="#contact">Контакты</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- Hero с привязкой к региону и услугам -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-cogs"></i> ИНСТРУМЕНТАЛЬНЫЙ ЦЕХ | САНКТ-ПЕТЕРБУРГ</div>
+                <h1>Фрезеровка, <span>гравировка, пресс-формы</span> любой сложности</h1>
+                <p>Производственная компания «ИВЕКС 24» выполняет фрезерные работы на ЧПУ, 3D фрезеровку, гравировку по дереву, пластику и мягким металлам. Оперативно, с гарантией качества.</p>
+                <a href="#contact" class="btn btn-primary">Получить расчет</a>
+                <div class="hero-stats">
+                    <div class="stat-item"><div class="stat-number">12+</div><div>лет опыта</div></div>
+                    <div class="stat-item"><div class="stat-number">24/7</div><div>прием заказов</div></div>
+                    <div class="stat-item"><div class="stat-number">РФ</div><div>доставка по всей России</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Наши услуги / возможности (ориентация на материалы и услуги из ВК) -->
+    <section id="capabilities" class="bg-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Технологии и материалы</h2>
+                <p>Фрезеровка, гравировка, изготовление пресс-форм и оснастки</p>
+            </div>
+            <div class="grid-3">
+                <div class="capability-card">
+                    <div class="card-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Фрезеровка ЧПУ</h3>
+                    <p>3D фрезеровка, плоское фрезерование, контурная резка. Работаем с металлом, пластиком, композитами.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="card-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Гравировка</h3>
+                    <p>Художественная и техническая гравировка по дереву, пластику, латуни, алюминию. Логотипы, шкалы, панели.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="card-icon"><i class="fas fa-cubes"></i></div>
+                    <h3>Пресс-формы</h3>
+                    <p>Проектирование и изготовление пресс-форм для литья пластмасс и металлов под заказ. Полный цикл.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея -->
+    <section id="gallery" class="bg-gray-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Примеры работ</h2>
+                <p>Реализованные проекты: от прототипов до серийных деталей</p>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- динамически через js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Оборудование -->
+    <section id="equipment" class="bg-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Парк оборудования</h2>
+                <p>Современные фрезерные центры с ЧПУ и контроль качества</p>
+            </div>
+            <div class="equipment-list">
+                <div class="equip-item"><div class="equip-icon"><i class="fas fa-microchip"></i></div><div class="equip-info"><div class="equip-name">Обрабатывающий центр HAAS VF-2</div><div class="equip-desc">3-осевая высокоскоростная обработка металлов</div></div><div class="equip-spec">до 0.01 мм</div></div>
+                <div class="equip-item"><div class="equip-icon"><i class="fas fa-cutter"></i></div><div class="equip-info"><div class="equip-name">Фрезерно-гравировальный станок с ЧПУ</div><div class="equip-desc">Идеально для гравировки и 2.5D фрезеровки</div></div><div class="equip-spec">1500x1000 мм</div></div>
+                <div class="equip-item"><div class="equip-icon"><i class="fas fa-chart-line"></i></div><div class="equip-info"><div class="equip-name">Координатно-измерительная машина</div><div class="equip-desc">Контроль геометрии пресс-форм и ответственных деталей</div></div><div class="equip-spec">сертификация</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма и контакты (полностью под данные группы) -->
+    <section id="contact" class="bg-gray-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Свяжитесь с нами</h2>
+                <p>Обсудите ваш заказ — от разовой детали до серии пресс-форм</p>
+            </div>
+            <div class="contact-grid">
+                <div class="form-card">
+                    <form id="requestForm" action="#" method="POST">
+                        <div class="input-group"><input type="text" placeholder="Ваше имя" required></div>
+                        <div class="input-group"><input type="email" placeholder="E-mail (zakaz@iveks24.ru)" required></div>
+                        <div class="input-group"><input type="tel" placeholder="Телефон *" required></div>
+                        <div class="input-group"><textarea placeholder="Опишите детали: фрезеровка, гравировка, пресс-форма, материал, объем"></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width:100%">Отправить запрос <i class="fas fa-paper-plane"></i></button>
+                        <p style="font-size:0.7rem; margin-top:1rem; color:var(--gray-mid)">Нажимая кнопку, вы даете согласие на обработку данных.</p>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-detail"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><strong>Тел.:</strong> +7 (812) 960-24-39, +7-921-960-24-39</div></div>
+                    <div class="contact-detail"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div>✉ zakaz@iveks24.ru<br>www.iveks24.ru</div></div>
+                    <div class="contact-detail"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div>г. Санкт-Петербург, ст. м. Приморская / пл. Ленина (адрес согласовывается индивидуально)</div></div>
+                    <div class="delivery-badge">
+                        <i class="fas fa-truck"></i> <strong>Условия доставки:</strong><br>
+                        • Самовывоз (метро Приморская или пл. Ленина).<br>
+                        • Отправляем по всей России: Почта России и транспортные компании.<br>
+                        ⚡ <strong>При заказе от 15 000 ₽ — доставка по Санкт-Петербургу бесплатно!</strong>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://vk.com/iveks24" target="_blank" class="social-link"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Производственная компания «ИВЕКС 24» — Фрезеровка, гравировка, пресс-формы в Санкт-Петербурге.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Работаем для бизнеса и частных заказчиков по всей РФ.</p>
+    </div>
+</footer>
+
+<script>
+    // Галерея с примерами (темы из услуг)
+    const galleryData = [
+        { title: "Пресс-форма для литья", img: "https://placehold.co/600x500/2c2f36/ffffff?text=Пресс-форма+литье" },
+        { title: "3D фрезеровка алюминия", img: "https://placehold.co/600x500/2c2f36/ffffff?text=3D+фрезеровка" },
+        { title: "Гравировка на латуни", img: "https://placehold.co/600x500/2c2f36/ffffff?text=Гравировка+латунь" },
+        { title: "Детали из пластика POM", img: "https://placehold.co/600x500/2c2f36/ffffff?text=Пластик+POM" },
+        { title: "Художественная резьба по дереву", img: "https://placehold.co/600x500/2c2f36/ffffff?text=Дерево+ЧПУ" },
+        { title: "Оснастка и штампы", img: "https://placehold.co/600x500/2c2f36/ffffff?text=Штампы+оснастка" }
+    ];
+    const galleryContainer = document.getElementById('galleryGrid');
+    if(galleryContainer) {
+        galleryData.forEach(item => {
+            const el = document.createElement('div');
+            el.className = 'gallery-item';
+            el.innerHTML = `<img src="${item.img}" alt="${item.title}" loading="lazy"><div class="gallery-overlay"><span>${item.title}</span></div>`;
+            galleryContainer.appendChild(el);
+        });
+    }
+
+    // Форма
+    const form = document.getElementById('requestForm');
+    if(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо! Ваш запрос принят. Свяжемся с вами в ближайшее время по указанным контактам.');
+            form.reset();
+        });
+    }
+
+    // Плавный скролл для навигации
+    document.querySelectorAll('.nav-links a, .hero-content .btn-primary').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId && targetId.startsWith('#')){
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
